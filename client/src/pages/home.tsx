@@ -49,13 +49,10 @@ export default function Home() {
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 gradient-emerald-amber rounded-xl flex items-center justify-center">
-                <Code className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h1 className="text-xl font-bold text-gray-900">Хакатон 2025</h1>
-                <p className="text-sm text-gray-600">Инновации будущего</p>
+            <div className="flex items-center">
+              {/* Место для логотипа хакатона */}
+              <div className="w-16 h-16 bg-white/20 border-2 border-dashed border-emerald-300 rounded-xl flex items-center justify-center">
+                <span className="text-xs text-emerald-600 font-medium">LOGO</span>
               </div>
             </div>
             <div className="hidden sm:flex items-center space-x-4">
@@ -126,50 +123,40 @@ export default function Home() {
               <span>Время автоматически обновляется каждую секунду</span>
             </div>
           </motion.div>
+
+          {/* Partners Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.0 }}
+            className="mt-16 mb-8"
+          >
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Партнеры мероприятия</h3>
+              <p className="text-gray-600">Компании, которые поддерживают инновации</p>
+            </div>
+            
+            <div className="bg-white/50 backdrop-blur-lg rounded-3xl p-8 border border-white/20">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center">
+                {Array.from({ length: 12 }, (_, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 1.2 + i * 0.1 }}
+                    whileHover={{ scale: 1.05 }}
+                    className="bg-white/70 rounded-xl p-4 h-20 flex items-center justify-center border border-gray-100 hover:shadow-lg transition-all duration-300 cursor-pointer"
+                  >
+                    <div className="w-full h-full bg-gradient-to-br from-emerald-100 to-amber-100 rounded-lg flex items-center justify-center">
+                      <span className="text-xs font-medium text-gray-600">LOGO {i + 1}</span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
         </div>
       </main>
-
-      {/* Footer */}
-      <motion.footer
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 1.0 }}
-        className="bg-white/80 backdrop-blur-sm border-t border-emerald-100 mt-auto"
-      >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-            <div className="text-center sm:text-left">
-              <p className="text-gray-600 text-sm">© 2025 Хакатон. Построено с ❤️ для инноваций</p>
-            </div>
-            <div className="flex items-center space-x-6">
-              <motion.a
-                href="#"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="text-gray-400 hover:text-emerald-500 transition-colors"
-              >
-                <Github className="w-5 h-5" />
-              </motion.a>
-              <motion.a
-                href="#"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="text-gray-400 hover:text-emerald-500 transition-colors"
-              >
-                <Twitter className="w-5 h-5" />
-              </motion.a>
-              <motion.a
-                href="#"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="text-gray-400 hover:text-emerald-500 transition-colors"
-              >
-                <Linkedin className="w-5 h-5" />
-              </motion.a>
-            </div>
-          </div>
-        </div>
-      </motion.footer>
     </div>
   );
 }
