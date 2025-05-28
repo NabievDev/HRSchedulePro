@@ -51,8 +51,12 @@ export default function Home() {
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               {/* Место для логотипа хакатона */}
-              <div className="w-16 h-16 bg-white/20 border-2 border-dashed border-emerald-300 rounded-xl flex items-center justify-center">
-                <span className="text-xs text-emerald-600 font-medium">LOGO</span>
+              <div className="w-300 h-20 rounded-xl overflow-hidden bg-white/80 gradient-emerald-amber rounded-2xl p-6 sm:p-3 shadow-lg transform transition-all duration-300 cursor-pointer">
+                <img
+                  src="/assets/logo.png"
+                  alt="Hackathon Logo"
+                  className="w-full h-full object-contain"
+                />
               </div>
             </div>
             <div className="hidden sm:flex items-center space-x-4">
@@ -109,51 +113,6 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.6 }}
           >
             <EventDetails />
-          </motion.div>
-
-          {/* Additional Info */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="mt-8 text-center"
-          >
-            <div className="inline-flex items-center space-x-2 text-sm text-gray-500">
-              <Info className="w-4 h-4" />
-              <span>Время автоматически обновляется каждую секунду</span>
-            </div>
-          </motion.div>
-
-          {/* Partners Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.0 }}
-            className="mt-16 mb-8"
-          >
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Партнеры мероприятия</h3>
-              <p className="text-gray-600">Компании, которые поддерживают инновации</p>
-            </div>
-            
-            <div className="bg-white/50 backdrop-blur-lg rounded-3xl p-8 border border-white/20">
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center">
-                {Array.from({ length: 12 }, (_, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 1.2 + i * 0.1 }}
-                    whileHover={{ scale: 1.05 }}
-                    className="bg-white/70 rounded-xl p-4 h-20 flex items-center justify-center border border-gray-100 hover:shadow-lg transition-all duration-300 cursor-pointer"
-                  >
-                    <div className="w-full h-full bg-gradient-to-br from-emerald-100 to-amber-100 rounded-lg flex items-center justify-center">
-                      <span className="text-xs font-medium text-gray-600">LOGO {i + 1}</span>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
           </motion.div>
         </div>
       </main>
