@@ -4,6 +4,7 @@ import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
 export default defineConfig({
+  base: '/HRSchedulePro/', // 👈 обязательно
   plugins: [
     react(),
     runtimeErrorOverlay(),
